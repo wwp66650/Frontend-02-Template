@@ -45,6 +45,23 @@ Grammar Tree vs Priority
 ## 运算符左值与右值 
 Left hand side & Right hand side
 
+```js
+a.b = c;// 点运算是左手运算符，所以可以放左边
+a + b = c; // 但是加法运算属于右手运算符，应该放右边才正确。所以这里会报错 Uncaught SyntaxError: Invalid left-hand side in assignment
+```
+
+哪些是Invalid left-hand side?
+- Update(自增自减)
+    - a++
+    - a--
+    - --a
+    - ++a
+    ```js
+    // 下面两个表达式都是不合法的
+    ++a++
+    ++(a++)
+    ```
+
 # 运行时 Runtime
 ## 类型转换 
 Type Convertion
